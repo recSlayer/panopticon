@@ -1,4 +1,10 @@
-import { Component, createEffect, createResource, Show } from "solid-js"
+import {
+  Component,
+  createEffect,
+  createResource,
+  createSignal,
+  Show,
+} from "solid-js"
 import recIcon from "@/assets/rec.png"
 
 const constraints: MediaStreamConstraints = {
@@ -50,6 +56,12 @@ const VideoMonitor: Component<{}> = (props) => {
 
   let videoElement: HTMLVideoElement | undefined = undefined
 
+  const [blink, setBlink] = createSignal(true)
+
+  setInterval(() => {
+    setBlink(!blink())
+  }, 2000)
+
   return (
     <Show
       when={mediaStream.state == "ready"}
@@ -62,7 +74,11 @@ const VideoMonitor: Component<{}> = (props) => {
         muted={true}
         ref={videoElement}
       ></video>
-      {/* <img class="h-10 absolute bottom-10 left-5" src={recIcon} /> */}
+      <img
+        class="h-10 absolute bottom-5 left-5 transition-opacity delay-1000"
+        classList={{ "opacity-100": blink(), "opacity-0": !blink() }}
+        src={recIcon}
+      />
     </Show>
   )
 }
