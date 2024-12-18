@@ -1,14 +1,19 @@
 import type { Component, ParentComponent } from "solid-js"
-import Footer from "@/components/Footer"
 import Nav from "@/components/Nav"
+import ActivityMonitor from "@/components/ActivityMonitor"
+import FocusMonitor from "@/components/FocusMonitor"
+import VideoMonitor from "@/components/VideoMonitor"
 
 const Layout: ParentComponent = (props) => {
   return (
-    <div>
+    <>
       <Nav />
-      <div class="md:px-32 max-md:px-2">{props.children}</div>
-      <Footer />
-    </div>
+      <ActivityMonitor>
+        <div class="md:px-16 max-md:px-2 pt-2 mb-64 max-w-6xl">
+          {props.children}
+        </div>
+      </ActivityMonitor>
+    </>
   )
 }
 

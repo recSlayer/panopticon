@@ -1,7 +1,8 @@
-import type { Component } from "solid-js";
+import ShapeTask from "@/components/ShapeTask"
+import type { Component } from "solid-js"
 
 const Home: Component = () => {
-  return <div>Home</div>;
-};
+  return <ShapeTask />
+}
 
-export default Home;
+export default Home

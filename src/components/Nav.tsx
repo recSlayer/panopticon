@@ -6,7 +6,7 @@ import { A } from "@solidjs/router"
 const Nav: Component<{}> = (props) => {
   const [hidden, setHidden] = createSignal(true)
   return (
-    <div class="bg-neutral-200 overflow-hidden sm:sticky max-sm:relative">
+    <div class="bg-neutral-200 overflow-hidden sm:sticky max-sm:relative top-0">
       <div class="h-20 sm:float-left flex flex-row justify-between">
         <A class="inline-block h-full" href="/">
           <img class="h-full p-2" src={panopticonImg} />
